@@ -1,7 +1,9 @@
 package main
 
-import "github.com/hardcore-os/plato/cmd"
+import (
+	"fmt"
+)
 
 func main() {
-	cmd.Execute()
+	fmt.Println("hello myplato!")
 }
