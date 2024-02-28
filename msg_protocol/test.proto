@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+// cmd
+// cd msg_protocol
+// protoc --go_out=plugins=grpc:. *.proto
+option go_package = "./;msg_protocol";
+
+message Message {
+  FixedHeader fixedHeader = 1;
+  VarHeader varHeader = 2;
+  MsgBody msgBody = 3;
+}
+
+message FixedHeader {
+  bytes version = 1;
+  bytes msgType = 2;
+  uint32 msgLen = 3;
+  uint32 varHeadLen = 4;
+  uint32 crc32Sum = 5;
+}
+
+message VarHeader {
+  bytes data = 1;
+}
+
+message MsgBody {
+  bytes data = 1;
+}
